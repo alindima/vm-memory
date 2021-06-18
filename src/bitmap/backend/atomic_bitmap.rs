@@ -173,6 +173,17 @@ impl NewBitmap for AtomicBitmap {
     }
 }
 
+#[cfg(feature = "backend-mmap")]
+impl NewBitmap for Option<AtomicBitmap> {
+    fn with_len(len: usize) -> Self {
+        if len > 0 {
+            Some(AtomicBitmap::with_len(len))
+        } else {
+            None
+        }
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
