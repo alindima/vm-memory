@@ -503,7 +503,9 @@ impl<B: NewBitmap> GuestMemoryMmap<B> {
     pub fn new() -> Self {
         Self::default()
     }
+}
 
+impl<B: Bitmap> GuestMemoryMmap<B> {
     /// Creates a container and allocates anonymous memory for guest memory regions.
     ///
     /// Valid memory regions are specified as a slice of (Address, Size) tuples sorted by Address.
@@ -538,9 +540,6 @@ impl<B: NewBitmap> GuestMemoryMmap<B> {
                 .collect::<result::Result<Vec<_>, Error>>()?,
         )
     }
-}
-
-impl<B: Bitmap> GuestMemoryMmap<B> {
     /// Creates a new `GuestMemoryMmap` from a vector of regions.
     ///
     /// # Arguments
