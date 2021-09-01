@@ -37,7 +37,7 @@ pub use crate::mmap_windows::MmapRegion;
 pub use std::io::Error as MmapRegionError;
 
 /// Trait implemented by the underlying `MmapRegion`.
-pub(crate) trait AsSlice {
+pub trait AsSlice {
     /// Returns a slice corresponding to the data in the underlying `MmapRegion`.
     ///
     /// # Safety
