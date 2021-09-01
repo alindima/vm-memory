@@ -465,11 +465,11 @@ impl<B: Bitmap> GuestMemoryRegion for GuestRegionMmap<B> {
     }
 
     unsafe fn as_slice(&self) -> Option<&[u8]> {
-        Some(self.mapping.as_slice())
+        None
     }
 
     unsafe fn as_mut_slice(&self) -> Option<&mut [u8]> {
-        Some(self.mapping.as_mut_slice())
+        None
     }
 
     fn get_slice(
