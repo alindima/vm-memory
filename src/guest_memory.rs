@@ -763,7 +763,7 @@ impl<T: GuestMemory> Bytes<GuestAddress> for T {
                 }
             } else {
                 let len = std::cmp::min(len, MAX_ACCESS_CHUNK);
-                let mut buf = vec![0u8; len].into_boxed_slice();
+                let mut buf = vec![0u8; len];
                 loop {
                     match src.read(&mut buf[..]) {
                         Ok(bytes_read) => {
@@ -845,7 +845,7 @@ impl<T: GuestMemory> Bytes<GuestAddress> for T {
                 }
             } else {
                 let len = std::cmp::min(len, MAX_ACCESS_CHUNK);
-                let mut buf = vec![0u8; len].into_boxed_slice();
+                let mut buf = vec![0u8; len];
                 let bytes_read = region.read(&mut buf, caddr)?;
                 assert_eq!(bytes_read, len);
                 // For a non-RAM region, reading could have side effects, so we
