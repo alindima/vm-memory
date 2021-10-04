@@ -204,10 +204,10 @@ impl<B: Bitmap> MmapRegionBuilder<B> {
             return Err(Error::InvalidPointer);
         }
 
-        // Check that the size is a multiple of the page size.
-        if self.size & (page_size - 1) != 0 {
-            return Err(Error::InvalidSize);
-        }
+        // // Check that the size is a multiple of the page size.
+        // if self.size & (page_size - 1) != 0 {
+        //     return Err(Error::InvalidSize);
+        // }
 
         Ok(MmapRegion {
             addr,
